@@ -5,9 +5,9 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               shouldthisbeedited?
-tagline:             'TO BE EDITED'
-description:         'to be edited'
+title:               Paul Hendricks
+tagline:             'Data Scientist, Machine Learning Engingeer, Entrepeneur'
+description:         'This is a description about Paul Hendricks.'
 url:                 http://paulhendricks.io
 baseurl:             'http://paulhendricks.io'
 paginate:            5
