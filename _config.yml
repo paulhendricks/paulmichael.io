@@ -7,7 +7,7 @@ relative_permalinks: true
 # Setup
 title:               Paul Hendricks
 tagline:             'Data Scientist, Machine Learning Engineer, Entrepeneur'
-description:         'This is a description about Paul Hendricks.'
+description:         'Paul Hendricks is a Data Scientist, Machine Learning Engineer, Entrepeneur based out of Columbus, Ohio.'
 url:                 http://paulhendricks.io
 baseurl:             'http://paulhendricks.io'
 paginate:            5
