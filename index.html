@@ -1,221 +1,38 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+title: Home
+---
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Paul Hendricks : Paul Hendricks is a Data Scientist / Machine Learning Engineer">
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ site.baseurl }}/{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    <title>Paul Hendricks</title>
-  </head>
+    {{ post.content }}
+  </div>
+  {% endfor %}
+</div>
 
-  <body>
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/paulhendricks">View on GitHub</a>
-
-          <h1 id="project_title">Paul Hendricks</h1>
-          <h2 id="project_tagline">Paul Hendricks is a Data Scientist / Machine Learning Engineer</h2>
-
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-          <h1>
-              <a id="about-me" class="anchor" href="#about-me" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Me</h1>
-          <p>This is the website of Paul Hendricks. I am a Machine Learning Engineer on the <a href="http://www.nexosis.io/">Nexosis, Inc.</a> Data Science team. Previously I have worked as a Data Scientist at <a href="http://farsitegroup.com">Farsite</a>. I completed my Bachelor's in Mathematics and Statistics from <a href="http://go.owu.edu/~macsweb/">Ohio Wesleyan University</a>.</p>
-          <p>I am a proficient R, Python, and Shell programmer but am also experienced with C/C++, Perl, and Javascript. I have authored a number of <a href="#projects">R packages</a> as well as made contributions to popular R packages including <a href="https://github.com/hadley/purrr">purrr</a>, among others.</p>
-
-          <h1>
-              <a id="projects" class="anchor" href="#projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Projects</h1>
-
-          <h2>
-              <a id="functools---functional-programming-in-r" class="anchor" href="#functools---functional-programming-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>functools - Functional Programming in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=functools">
-                  <img src="http://www.r-pkg.org/badges/version/functools">
-              </a>
-              <a href="http://cran.rstudio.com/package=functools">
-                  <img src="http://cranlogs.r-pkg.org/badges/functools">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/functools">
-                  <img src="https://travis-ci.org/paulhendricks/functools.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/functools/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/au9ww7v8mhgr59s8/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/functools?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/functools/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>functools</code> provides tools for Functional Programming in R.<br>
-              <a href="https://github.com/paulhendricks/functools">GitHub</a>, <a href="http://functools.com/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/functools/">CRAN</a></p>
-
-          <h2>
-              <a id="generator---generate-fake-data-containing-pii-in-r" class="anchor" href="#generator---generate-fake-data-containing-pii-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>generator - Generate Data Containing PII in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=generator">
-                  <img src="http://www.r-pkg.org/badges/version/generator">
-              </a>
-              <a href="http://cran.rstudio.com/package=generator">
-                  <img src="http://cranlogs.r-pkg.org/badges/generator">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/generator">
-                  <img src="https://travis-ci.org/paulhendricks/generator.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/generator/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/c5vv1efvrsynt4js/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/generator?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/generator/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>generator</code> generates data containing fake Personally Identifiable Information (PII).<br>
-              <a href="https://github.com/paulhendricks/generator">GitHub</a>, <a href="http://paulhendricks.github.io/generator/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/generator/">CRAN</a></p>
-
-          <h2>
-              <a id="detector---detect-data-containing-pii-in-r" class="anchor" href="#detector---detect-data-containing-pii-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>detector - Detect Data Containing PII in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=detector">
-                  <img src="http://www.r-pkg.org/badges/version/detector">
-              </a>
-              <a href="http://cran.rstudio.com/package=detector">
-                  <img src="http://cranlogs.r-pkg.org/badges/detector">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/detector">
-                  <img src="https://travis-ci.org/paulhendricks/detector.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/detector/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/gu5ggnr1i2muw5r3/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/detector?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/detector/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>detector</code> makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable.<br>
-              <a href="https://github.com/paulhendricks/detector">GitHub</a>, <a href="http://paulhendricks.github.io/detector/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/detector/">CRAN</a></p>
-
-          <h2>
-              <a id="anonymizer---anonymize-data-containing-pii-in-r" class="anchor" href="#anonymizer---anonymize-data-containing-pii-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>anonymizer - Anonymize Data Containing PII in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=anonymizer">
-                  <img src="http://www.r-pkg.org/badges/version/anonymizer">
-              </a>
-              <a href="http://cran.rstudio.com/package=anonymizer">
-                  <img src="http://cranlogs.r-pkg.org/badges/anonymizer">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/anonymizer">
-                  <img src="https://travis-ci.org/paulhendricks/anonymizer.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/anonymizer/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/qu5j8q9wvit2i3pe/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/anonymizer?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/anonymizer/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>anonymizer</code> anonymizes data containing Personally Identifiable Information (PII) using a combination of salting and hashing.<br>
-             <a href="https://github.com/paulhendricks/anonymizer">GitHub</a>, <a href="http://paulhendricks.github.io/anonymizer/">GitHub Page</a>,  <a href="https://cran.r-project.org/web/packages/anonymizer/">CRAN</a></p>
-
-          <h2>
-              <a id="describer---describe-data-in-r" class="anchor" href="#describer---describe-data-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>describer - Describe Data in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=describer">
-                  <img src="http://www.r-pkg.org/badges/version/describer">
-              </a>
-              <a href="http://cran.rstudio.com/package=describer">
-                  <img src="http://cranlogs.r-pkg.org/badges/describer">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/describer">
-                  <img src="https://travis-ci.org/paulhendricks/describer.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/describer/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/jyh7mh23q1htalww/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/describer?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/describer/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>describer</code> quickly and easily describes data using common descriptive statistics.<br>
-              <a href="https://github.com/paulhendricks/describer">GitHub</a>, <a href="http://paulhendricks.github.io/describer/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/describer/">CRAN</a></p>
-
-          <h2>
-              <a id="profilr---profile-data-in-r" class="anchor" href="#profilr---profile-data-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>profilr - Profile Data in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=profilr">
-                  <img src="http://www.r-pkg.org/badges/version/profilr">
-              </a>
-              <a href="http://cran.rstudio.com/package=profilr">
-                  <img src="http://cranlogs.r-pkg.org/badges/profilr">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/profilr">
-                  <img src="https://travis-ci.org/paulhendricks/profilr.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/profilr/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/pcsh36eeajvevjbg/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/profilr?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/profilr/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>profilr</code> quickly and easily profiles data using common descriptive statistics.<br>
-              <a href="https://github.com/paulhendricks/profilr">GitHub</a>, <a href="http://paulhendricks.github.io/profilr/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/profilr/">CRAN</a></p>
-
-          <h2>
-              <a id="scorer---score-models-in-r" class="anchor" href="#scorer---score-models-in-r" aria-hidden="true"><span class="octicon octicon-link"></span></a>scorer - Scorer Models in R</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=scorer">
-                  <img src="http://www.r-pkg.org/badges/version/scorer">
-              </a>
-              <a href="http://cran.rstudio.com/package=scorer">
-                  <img src="http://cranlogs.r-pkg.org/badges/scorer">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/scorer">
-                  <img src="https://travis-ci.org/paulhendricks/scorer.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/scorer/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/vuumrc0607xa44q9/branch/master?svg=true"/>
-              </a>
-              <a href="http://codecov.io/github/paulhendricks/scorer?branch=master">
-                  <img src="http://codecov.io/github/paulhendricks/scorer/coverage.svg?branch=master"/>
-              </a><br>
-          </p>
-          <p><code>scorer</code> is a set of tools for quickly scoring models in data science and machine learning. This toolset is written in C++, where possible, for blazing fast performance.<br>
-              <a href="https://github.com/paulhendricks/scorer">GitHub</a>, <a href="http://paulhendricks.github.io/scorer/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/scorer/">CRAN</a></p>
-          <h2>
-              <a id="titanic---titanic-passenger-survival-data-set" class="anchor" href="#titanic---titanic-passenger-survival-data-set" aria-hidden="true"><span class="octicon octicon-link"></span></a>titanic - Titanic Passenger Survival Data Set</h2>
-          <p>
-              <a href="http://cran.r-project.org/package=titanic">
-                  <img src="http://www.r-pkg.org/badges/version/titanic">
-              </a>
-              <a href="http://cran.rstudio.com/package=titanic">
-                  <img src="http://cranlogs.r-pkg.org/badges/titanic">
-              </a>
-              <a href="https://travis-ci.org/paulhendricks/titanic">
-                  <img src="https://travis-ci.org/paulhendricks/titanic.svg?branch=master">
-              </a>
-              <a href="https://ci.appveyor.com/project/paulhendricks/titanic/branch/master">
-                  <img src="https://ci.appveyor.com/api/projects/status/vuumrc0607xa44q9/branch/master?svg=true"/>
-              </a>
-          </p>
-          <p><code>titanic</code> is an R package containing data sets providing information on the fate of passengers on the fatal maiden voyage of the ocean liner "Titanic", with variables such as economic status (class), sex, age and survival.<br>
-              <a href="https://github.com/paulhendricks/titanic">GitHub</a>, <a href="http://paulhendricks.github.io/titanic/">GitHub Page</a>, <a href="https://cran.r-project.org/web/packages/titanic/">CRAN</a></p>
-
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a>. Design based off <a href="http://www.jimhester.com/">Jim Hester's website</a>.</p>
-      </footer>
-    </div>
-
-  </body>
-</html>
