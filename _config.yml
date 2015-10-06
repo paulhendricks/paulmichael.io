@@ -5,18 +5,18 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               Paul Hendricks
-tagline:             'Data Scientist, Machine Learning Engineer, Entrepeneur'
-description:         'Paul Hendricks is a Data Scientist, Machine Learning Engineer, Entrepeneur based out of Columbus, Ohio.'
-url:                 http://paulhendricks.io
-baseurl:             'http://paulhendricks.io'
+title:               Paul Michael
+tagline:             'Actor, Model, Entrepeneur'
+description:         'Paul Michael is an Actor, Model, Entrepeneur based out of Columbus, Ohio.'
+url:                 http://paulmichael.io
+baseurl:             'http://paulmichael.io'
 paginate:            5
 
 # About/contact
 author:
-  name:              Paul Hendricks
-  url:               http://paulhendricks.io
-  email:             paul.hendricks.2013@owu.edu
+  name:              Paul Michael
+  url:               http://paulmichael.io
+  email:             paul.michael.booking@gmail.com
 
 # Custom vars
 version:             1.0.0
