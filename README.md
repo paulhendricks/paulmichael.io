@@ -1,3 +1,3 @@
 # Website
 
-This is the website of Paul Hendricks.
+This is the personal website of Paul Hendricks.
